@@ -46,23 +46,28 @@ public class UserServiceTest {
     @Test
     public void testInitData(){
         //userService.initData();
+    	//这是用户实体
 		User user = new User("xiaowb");
 		userRepository.save(user);
 		//userRepository.deleteAll();
 		//userRepository.delete(user);
+		//这是看电影实体
     	Movie mov = new Movie("Movie");
     	movieRepository.save(mov);
-    	//movieRepository.deleteAll();
+    	//movieRepository.deleteAll();	
+    	//这是人类实体
     	person person = new person("xiaojr","27");
     	personRepositroy.save(person);
-    	
+    	//这是用户实体和看电影实体
     	Seen hasSeen1 = new Seen(5, user, mov);
     	seenRepository.save(hasSeen1);
-    	
+    	//这是电影实体和用户实体
        PersonRefMov mov2 = new PersonRefMov(2, mov, user);
         personRef.save(mov2);
+        //这是person和mov实体
         personToMovie perMovie = new personToMovie(2, person, mov);
         personToMovie.save(perMovie);
+        //这是person和user实体关系类
         personToUser perUser = new personToUser(3, person, user);
         personToUserRepository.save(perUser);
     	//seenRepository.save(hasSeen1);
